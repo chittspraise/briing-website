@@ -28,6 +28,9 @@
             <p>Help shoppers by delivering their products for a worthy reward.</p>
             <form id="travel-form">
                 <div class="form-group">
+                    <input type="text" id="traveler-name" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
                     <input type="text" id="from-country" class="form-input" placeholder="From (e.g., USA)" required>
                 </div>
                 <div class="form-group">
@@ -52,8 +55,7 @@
     <script>
         // Basic session handling for header
         const userSessionContainer = document.getElementById('user-session');
-        const supabaseClient = supabase.createClient('https://rjntkaamdisyykpgjezm.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbnRrYWFtZGlzeXlrcGdqZXptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMjU3MjMsImV4cCI6MjA2NjcwMTcyM30.SnkV3sMLF_Mw38JZieZxocY-aAkCAO0-MLzmo_ZkpZk');
-
+        
         supabaseClient.auth.getSession().then(({ data: { session } }) => {
             if (session) {
                 userSessionContainer.innerHTML = `<a href="index.html" class="btn">Dashboard</a>`;
