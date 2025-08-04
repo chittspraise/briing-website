@@ -144,7 +144,7 @@ async function fetchTravelers() {
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="product-link.html?name=${encodeURIComponent(order.item_name)}&store=${encodeURIComponent(order.store)}&price=${order.price}&image=${encodeURIComponent(order.image_url)}" class="btn btn-accept">Order this item</a>
+                    <a href="https://play.google.com/store" target="_blank" class="btn btn-request">Request Delivery</a>
                 </div>
             </div>
         `;
