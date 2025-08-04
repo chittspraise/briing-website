@@ -1,14 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "/bring/**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/bring/$1"
-    }
-  ]
+  "cleanUrls": true,
+  "trailingSlash": false
 }
