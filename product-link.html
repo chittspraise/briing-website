@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Briing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html"><img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo"></a>
+    </header>
+
+    <div class="container">
+        <div class="page-form-container">
+            <form id="product-details-form">
+                <div class="form-group">
+                    <label for="product-name" class="form-label">Product Name</label>
+                    <input type="text" id="product-name" class="form-input" placeholder="Enter product name">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-url" class="form-label">Product URL</label>
+                    <input type="url" id="product-url" class="form-input" placeholder="https://...">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-price" class="form-label">Price</label>
+                    <div class="price-input-container">
+                        <span class="currency-symbol">ZAR</span>
+                        <input type="number" id="product-price" class="form-input price-input" placeholder="Enter price">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-quantity" class="form-label">Quantity</label>
+                    <input type="number" id="product-quantity" class="form-input" value="1" placeholder="Enter quantity">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-description" class="form-label">Product Description</label>
+                    <textarea id="product-description" class="form-input" rows="4" placeholder="Enter product description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Product Image</label>
+                    <img id="main-image" src="https://i.imgur.com/aj3x32s.png" alt="Main product image" class="main-product-image">
+                    <div id="thumbnail-gallery" class="thumbnail-gallery"></div>
+                    <input type="file" id="image-upload" class="image-upload-input" accept="image/*">
+                    <label for="image-upload" class="btn-image-upload">Add Your Own Image</label>
+                </div>
+
+                <div class="form-group switch-container">
+                    <label for="is-gift" class="form-label">Mark as Gift</label>
+                    <label class="switch">
+                        <input type="checkbox" id="is-gift">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn form-submit-btn">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="order.js"></script>
+</body>
+</html>

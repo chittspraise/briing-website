@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Travel - Briing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html"><img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo"></a>
+        <div class="header-controls">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="user-session">
+                <!-- Session info will be injected here -->
+            </div>
+        </div>
+    </header>
+
+    <div class="travel-page-wrapper">
+        <div class="auth-form travel-form">
+            <h2>Add Travel</h2>
+            <p>Help shoppers by delivering their products for a worthy reward.</p>
+            <form id="travel-form">
+                <div class="form-group">
+                    <input type="text" id="from-country" class="form-input" placeholder="From (e.g., USA)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="to-country" class="form-input" placeholder="To (e.g., South Africa)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="departure-date" class="form-input" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Departure Date" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="return-date" class="form-input" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Return Date (optional)">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="budget" class="form-input" placeholder="Your budget (Rands)">
+                </div>
+                <button type="submit" class="btn">Add Trip</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="travel.js"></script>
+    <script>
+        // Basic session handling for header
+        const userSessionContainer = document.getElementById('user-session');
+        const supabaseClient = supabase.createClient('https://rjntkaamdisyykpgjezm.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJqbnRrYWFtZGlzeXlrcGdqZXptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMjU3MjMsImV4cCI6MjA2NjcwMTcyM30.SnkV3sMLF_Mw38JZieZxocY-aAkCAO0-MLzmo_ZkpZk');
+
+        supabaseClient.auth.getSession().then(({ data: { session } }) => {
+            if (session) {
+                userSessionContainer.innerHTML = `<a href="index.html" class="btn">Dashboard</a>`;
+            } else {
+                userSessionContainer.innerHTML = `<a href="login.html" class="btn btn-login">Log In</a>`;
+            }
+        });
+
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        const setTheme = (theme) => {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if (themeToggle) {
+                themeToggle.checked = theme === 'dark';
+            }
+        };
+
+        if (themeToggle) {
+            themeToggle.addEventListener('change', () => {
+                const newTheme = themeToggle.checked ? 'dark' : 'light';
+                setTheme(newTheme);
+            });
+        }
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

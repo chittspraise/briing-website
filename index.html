@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briing - Get Anything Delivered</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="top-nav">
+        <img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo">
+        <div class="header-controls">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="user-session">
+                <!-- This will be replaced by user info or login buttons -->
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get Anything, Delivered Across the World</h1>
+            <p>Your order catches the next flight not the next day</p>
+            <div class="app-buttons">
+                <a href="#" class="app-store-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
+                </a>
+                <a href="#" class="google-play-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="main-content" class="container">
+        <!-- Logged-in content will be injected here -->
+    </div>
+
+    <div class="container">
+        <section class="how-it-works-section">
+            <h2>How to shop from anywhere</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="step-title">1. Post Your Request</h3>
+                    <p class="step-description">Tell us what you want by sharing the product link. Then, set a traveler reward you’re willing to pay for the delivery.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="step-title">2. A Traveler Accepts</h3>
+                    <p class="step-description">A verified traveler, already heading to your city, accepts your delivery offer and purchases the item on your behalf.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="step-title">3. Receive Your Item</h3>
+                    <p class="step-description">Meet your traveler in person to receive your item. Once you confirm delivery, we release the payment to your traveler.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="stores-section">
+            <h2>Order from Top Online Stores</h2>
+            <div class="store-grid">
+                <div class="store-item"><a href="https://www.amazon.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon"></a></div>
+                <div class="store-item"><a href="https://www.ebay.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/2560px-EBay_logo.svg.png" alt="eBay"></a></div>
+                <div class="store-item"><a href="https://www.shein.com" target="_blank"><img src="https://static.cdnlogo.com/logos/s/38/shein.png" alt="Shein"></a></div>
+                <div class="store-item"><a href="https://www.bestbuy.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Best_Buy_Logo.svg/2560px-Best_Buy_Logo.svg.png" alt="Best Buy"></a></div>
+                <div class="store-item"><a href="https://www.apple.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/2560px-Apple_logo_black.svg.png" alt="Apple"></a></div>
+                <div class="store-item"><a href="https://superbalist.com" target="_blank"><img src="https://play-lh.googleusercontent.com/FzksApQVszUAxcge78hI0FcAAvmrf6sL3LP6dr_b83N0zMwuaQrvdF463z0rnpYd9_E" alt="Superbalist"></a></div>
+                <div class="store-item"><a href="https://www.zando.co.za" target="_blank"><img src="https://yt3.ggpht.com/-fdur6TcD0_I/AAAAAAAAAAI/AAAAAAAAAAA/Viz5hHIQH7U/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="Zando"></a></div>
+                <div class="store-item"><a href="https://www.nike.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png" alt="Nike"></a></div>
+                <div class="store-item"><a href="https://www.takealot.com" target="_blank"><img src="https://techcentral.co.za/wp-content/uploads/2018/10/takealot-2156-1120.jpg" alt="Takealot"></a></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Briing. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script>
+        const userSessionContainer = document.getElementById('user-session');
+        const mainContentContainer = document.getElementById('main-content');
+
+        const setupUI = async (user) => {
+            if (user) {
+                // User is logged in, fetch their profile from the 'profiles' table
+                const { data: profile, error } = await supabaseClient
+                    .from('profiles')
+                    .select('first_name, image_url')
+                    .eq('id', user.id)
+                    .single();
+
+                if (error) {
+                    console.error('Error fetching profile:', error);
+                    // Fallback to metadata or show a generic user
+                    const userProfile = user.user_metadata;
+                    userSessionContainer.innerHTML = `
+                        <div class="profile-header">
+                            <img src="${userProfile.image_url || 'https://i.pravatar.cc/100'}" alt="User Avatar" class="avatar">
+                            <div>
+                                <p class="username">${userProfile.first_name || 'User'}</p>
+                            </div>
+                            <button id="logout-button" class="btn btn-login">Log Out</button>
+                        </div>
+                    `;
+                } else {
+                    userSessionContainer.innerHTML = `
+                        <div class="profile-header">
+                            <img src="${profile.image_url || 'https://i.pravatar.cc/100'}" alt="User Avatar" class="avatar">
+                            <div>
+                                <p class="username">${profile.first_name || 'User'}</p>
+                            </div>
+                            <button id="logout-button" class="btn btn-login">Log Out</button>
+                        </div>
+                    `;
+                }
+                
+                document.getElementById('logout-button').addEventListener('click', async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.reload();
+                });
+
+                // Show logged-in content
+                showLoggedInContent();
+
+            } else {
+                // User is not logged in
+                userSessionContainer.innerHTML = `
+                    <div class="auth-buttons">
+                        <a href="login.html" class="btn btn-login">Log In</a>
+                        <a href="signup.html" class="btn btn-signup">Sign Up</a>
+                    </div>
+                `;
+                mainContentContainer.innerHTML = `
+                    <div class="main-actions">
+                        <div class="action-card">
+                                <a href="all-stores.html">
+                                    <img src="https://images.pexels.com/photos/1058959/pexels-photo-1058959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Shopping" class="action-image">
+                                    <div class="action-text">
+                                        <h3>Shop Worldwide</h3>
+                                        <p>Buy from global stores and have your items delivered by a traveler.</p>
+                                    </div>
+                                </a>
+                            </div>
+                        <div class="action-card">
+                            <a href="travel-details.html">
+                                <img src="../assets/images/travelling.jpg" alt="Travel" class="action-image">
+                                <div class="action-text">
+                                    <h3>Travel & Earn</h3>
+                                    <p>Deliver products for shoppers and get a reward.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        const showLoggedInContent = async () => {
+            mainContentContainer.innerHTML = `
+                <div class="main-actions">
+                    <div class="action-card">
+                            <a href="all-stores.html">
+                                <img src="https://images.pexels.com/photos/1058959/pexels-photo-1058959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Shopping" class="action-image">
+                                <div class="action-text">
+                                    <h3>Shop Worldwide</h3>
+                                    <p>Buy from global stores and have your items delivered by a traveler.</p>
+                                </div>
+                            </a>
+                        </div>
+                    <div class="action-card">
+                        <a href="travel-details.html">
+                            <img src="../assets/images/travelling.jpg" alt="Travel" class="action-image">
+                            <div class="action-text">
+                                <h3>Travel & Earn</h3>
+                                <p>Deliver products for shoppers and get a reward.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="data-section">
+                    <div class="section-header">
+                        <h2>Recent Order Requests</h2>
+                        <a href="all-stores.html" class="btn btn-primary">+ Create an Order</a>
+                    </div>
+                    <div class="scroll-wrapper">
+                        <button class="scroll-arrow prev-arrow" data-target="orders-container">&lt;</button>
+                        <div class="horizontal-scroll" id="orders-container"></div>
+                        <button class="scroll-arrow next-arrow" data-target="orders-container">&gt;</button>
+                    </div>
+                </div>
+                <div class="data-section">
+                    <div class="section-header">
+                        <h2>Upcoming Travelers</h2>
+                        <a href="travel-details.html" class="btn">+ Add Trip</a>
+                    </div>
+                    <p class="section-description">See who's heading your way. Request a delivery directly from our community of verified travelers.</p>
+                    <div class="scroll-wrapper">
+                        <button class="scroll-arrow prev-arrow" data-target="travelers-container">&lt;</button>
+                        <div class="horizontal-scroll" id="travelers-container"></div>
+                        <button class="scroll-arrow next-arrow" data-target="travelers-container">&gt;</button>
+                    </div>
+                </div>
+                <div class="data-section">
+                    <h2>Hot Deals From Around the World</h2>
+                    <h3 class="subsection-title">Recently Delivered</h3>
+                    <div class="scroll-wrapper">
+                        <div class="horizontal-scroll" id="received-orders-container"></div>
+                    </div>
+                    <h3 class="subsection-title">Trending Now</h3>
+                    <div class="scroll-wrapper">
+                        <div class="horizontal-scroll" id="pending-orders-container"></div>
+                    </div>
+                </div>
+            `;
+            await fetchOrders();
+            await fetchTravelers();
+            await fetchHotDeals();
+            setupScrollButtons();
+        };
+
+        supabaseClient.auth.onAuthStateChange((event, session) => {
+            setupUI(session?.user);
+        });
+
+        // Initial check
+        supabaseClient.auth.getSession().then(({ data: { session } }) => {
+            setupUI(session?.user);
+        });
+
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Function to set the theme
+        const setTheme = (theme) => {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.checked = theme === 'dark';
+        };
+
+        // Event listener for the toggle
+        themeToggle.addEventListener('change', () => {
+            const newTheme = themeToggle.checked ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+
+        // Check for saved theme in localStorage on page load
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    </script>
+</body>
+</html>

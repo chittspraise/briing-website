@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "/bring/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/bring/$1"
+    }
+  ]
+}

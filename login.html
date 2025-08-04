@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Briing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-form">
+            <div class="auth-logo-container">
+                <img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo">
+            </div>
+            <h2>Log In</h2>
+            <p>Welcome back! Please enter your details.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" class="form-input" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+            </form>
+            <div class="switch-auth">
+                <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

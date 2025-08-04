@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Details - Briing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-nav">
+        <a href="index.html"><img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo"></a>
+    </header>
+
+    <div class="container">
+        <div class="page-form-container">
+            <h2 class="page-form-title">Delivery details</h2>
+            
+            <form id="delivery-details-form">
+                <div class="form-group">
+                    <label for="deliver-from" class="form-label">Deliver from</label>
+                    <input type="text" id="deliver-from" class="form-input" value="United States of America">
+                </div>
+
+                <div class="form-group">
+                    <label for="deliver-to" class="form-label">Deliver to</label>
+                    <input type="text" id="deliver-to" class="form-input" value="Midrand">
+                </div>
+
+                <p class="form-info">A traveler going to your city will deliver your order. Enter the country your order is coming from and which city you want it to be delivered to.</p>
+
+                <div class="form-group">
+                    <label for="wait-time" class="form-label">How long are you willing to wait?</label>
+                    <div class="select-wrapper">
+                        <select id="wait-time" class="form-input">
+                            <option>1 day</option>
+                            <option>2 days</option>
+                            <option>3 days</option>
+                            <option>1 week</option>
+                            <option>2 weeks</option>
+                            <option>3 weeks</option>
+                            <option selected>Up to 1 month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="form-info sub-info">The longer period you are ready to wait, the more offers you receive and can choose from.</p>
+
+                <button type="submit" class="btn form-submit-btn">Next</button>
+            </form>
+
+            <a href="https://www.fnb.co.za" target="_blank" class="info-card-link">
+                <div class="info-card">
+                    <h3 class="info-card-title">Do you have an FNB card?</h3>
+                    <p class="info-card-text">You can open one with FNB and pay directly in South African rands. Available nationwide.</p>
+                    <img src="assets/fnblogo.jpeg" alt="FNB Logo" class="info-card-logo">
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script src="order.js"></script>
+</body>
+</html>
