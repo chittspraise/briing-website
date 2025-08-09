@@ -63,6 +63,7 @@ async function fetchOrders() {
 
     let ordersHtml = '';
     for (const order of data) {
+        const imageUrl = order.image_url.startsWith('http') ? order.image_url : new URL(order.image_url, window.location.origin).href;
         ordersHtml += `
             <div class="data-card product-card">
                 <div class="card-image-container">
@@ -88,7 +89,7 @@ async function fetchOrders() {
                         <img src="${order.profiles.image_url || 'https://i.pravatar.cc/100'}" alt="User Avatar" class="avatar-small">
                         <p class="username-small">${order.profiles.first_name || 'User'}</p>
                     </div>
-                    <a href="product-link.html?name=${encodeURIComponent(order.item_name)}&store=${encodeURIComponent(order.store)}&price=${order.price}&image=${encodeURIComponent(order.image_url)}" class="btn btn-accept">Order this item</a>
+                    <a href="product-link.html?name=${encodeURIComponent(order.item_name)}&store=${encodeURIComponent(order.store)}&price=${order.price}&image=${encodeURIComponent(imageUrl)}" class="btn btn-accept">Order this item</a>
                 </div>
             </div>
         `;
@@ -184,7 +185,8 @@ function generateHotDealsHtml(data) {
     }
     let html = '';
     for (const item of data) {
-        const orderLink = `product-link.html?name=${encodeURIComponent(item.item_name)}&store=${encodeURIComponent(item.store)}&price=${item.price}&image=${encodeURIComponent(item.image_url)}`;
+        const imageUrl = item.image_url.startsWith('http') ? item.image_url : new URL(item.image_url, window.location.origin).href;
+        const orderLink = `product-link.html?name=${encodeURIComponent(item.item_name)}&store=${encodeURIComponent(item.store)}&price=${item.price}&image=${encodeURIComponent(imageUrl)}`;
         html += `
             <div class="data-card product-card">
                 <div class="card-image-container">
