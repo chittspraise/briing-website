@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         image_url: `https://i.pravatar.cc/150?u=${email}`
                     }
                 }
-            });
+            });``
             if (error) {
                 alert('Error signing up: ' + error.message);
             } else {
