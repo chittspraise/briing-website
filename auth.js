@@ -143,6 +143,10 @@ async function fetchTravelers() {
                         <span>Arrival:</span>
                         <span class="card-info-value">${new Date(travel.departure_date).toLocaleDateString()}</span>
                     </div>
+                    <div class="card-info-row">
+                        <span>Budget:</span>
+                        <span class="card-info-value amount-value">ZAR ${travel.budget}</span>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://play.google.com/store" target="_blank" class="btn btn-request">Request Delivery</a>
