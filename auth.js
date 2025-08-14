@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (error) {
                 alert('Error logging in: ' + error.message);
             } else {
-                window.location.href = 'index.html';
+                showNotification('Logged in successfully!');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
             }
         });
     }
@@ -35,16 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
                         image_url: `https://i.pravatar.cc/150?u=${email}`
                     }
                 }
-            });``
+            });
             if (error) {
                 alert('Error signing up: ' + error.message);
             } else {
-                alert('Sign up successful! Please check your email to confirm.');
-                window.location.href = 'login.html';
+                const { error: signInError } = await supabaseClient.auth.signInWithPassword({ email, password });
+                if (signInError) {
+                    alert('Error logging in after sign up: ' + signInError.message);
+                } else {
+                    showNotification('Signed up and logged in successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                }
             }
         });
     }
 });
+
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
 
 async function fetchOrders() {
     const ordersContainer = document.getElementById('orders-container');

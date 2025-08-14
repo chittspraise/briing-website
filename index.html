@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div id="notification"></div>
     <header class="top-nav">
         <img src="assets/Briing in Bold Contrast copy.png" alt="Briing Logo" class="logo">
         <div class="header-controls">
@@ -28,10 +29,10 @@
             <h1>Get Anything, Delivered Across the World</h1>
             <p>Your order catches the next flight not the next day</p>
             <div class="app-buttons">
-                <a href="#" class="app-store-btn">
+                <a href="#" class="app-store-btn" onclick="handleProtectedLink(event, '#')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" alt="App Store">
                 </a>
-                <a href="#" class="google-play-btn">
+                <a href="#" class="google-play-btn" onclick="handleProtectedLink(event, '#')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/2560px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
                 </a>
             </div>
@@ -46,15 +47,15 @@
         <div class="stores-section">
             <h2>Order from Top Online Stores</h2>
             <div class="store-grid">
-                <div class="store-item"><a href="https://www.amazon.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon"></a></div>
-                <div class="store-item"><a href="https://www.ebay.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/2560px-EBay_logo.svg.png" alt="eBay"></a></div>
-                <div class="store-item"><a href="https://www.shein.com" target="_blank"><img src="https://static.cdnlogo.com/logos/s/38/shein.png" alt="Shein"></a></div>
-                <div class="store-item"><a href="https://www.bestbuy.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Best_Buy_Logo.svg/2560px-Best_Buy_Logo.svg.png" alt="Best Buy"></a></div>
-                <div class="store-item"><a href="https://www.apple.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/2560px-Apple_logo_black.svg.png" alt="Apple"></a></div>
-                <div class="store-item"><a href="https://superbalist.com" target="_blank"><img src="https://play-lh.googleusercontent.com/FzksApQVszUAxcge78hI0FcAAvmrf6sL3LP6dr_b83N0zMwuaQrvdF463z0rnpYd9_E" alt="Superbalist"></a></div>
-                <div class="store-item"><a href="https://www.zando.co.za" target="_blank"><img src="https://yt3.ggpht.com/-fdur6TcD0_I/AAAAAAAAAAI/AAAAAAAAAAA/Viz5hHIQH7U/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="Zando"></a></div>
-                <div class="store-item"><a href="https://www.nike.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png" alt="Nike"></a></div>
-                <div class="store-item"><a href="https://www.takealot.com" target="_blank"><img src="https://techcentral.co.za/wp-content/uploads/2018/10/takealot-2156-1120.jpg" alt="Takealot"></a></div>
+                <div class="store-item"><a href="https://www.amazon.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.amazon.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon"></a></div>
+                <div class="store-item"><a href="https://www.ebay.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.ebay.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/EBay_logo.svg/2560px-EBay_logo.svg.png" alt="eBay"></a></div>
+                <div class="store-item"><a href="https://www.shein.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.shein.com')"><img src="https://static.cdnlogo.com/logos/s/38/shein.png" alt="Shein"></a></div>
+                <div class="store-item"><a href="https://www.bestbuy.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.bestbuy.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Best_Buy_Logo.svg/2560px-Best_Buy_Logo.svg.png" alt="Best Buy"></a></div>
+                <div class="store-item"><a href="https://www.apple.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.apple.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/2560px-Apple_logo_black.svg.png" alt="Apple"></a></div>
+                <div class="store-item"><a href="https://superbalist.com" target="_blank" onclick="handleProtectedLink(event, 'https://superbalist.com')"><img src="https://play-lh.googleusercontent.com/FzksApQVszUAxcge78hI0FcAAvmrf6sL3LP6dr_b83N0zMwuaQrvdF463z0rnpYd9_E" alt="Superbalist"></a></div>
+                <div class="store-item"><a href="https://www.zando.co.za" target="_blank" onclick="handleProtectedLink(event, 'https://www.zando.co.za')"><img src="https://yt3.ggpht.com/-fdur6TcD0_I/AAAAAAAAAAI/AAAAAAAAAAA/Viz5hHIQH7U/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" alt="Zando"></a></div>
+                <div class="store-item"><a href="https://www.nike.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.nike.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png" alt="Nike"></a></div>
+                <div class="store-item"><a href="https://www.takealot.com" target="_blank" onclick="handleProtectedLink(event, 'https://www.takealot.com')"><img src="https://techcentral.co.za/wp-content/uploads/2018/10/takealot-2156-1120.jpg" alt="Takealot"></a></div>
             </div>
         </div>
 
@@ -91,10 +92,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/api/config"></script>
     <script src="auth.js"></script>
     <script>
         const userSessionContainer = document.getElementById('user-session');
         const mainContentContainer = document.getElementById('main-content');
+
+        const handleProtectedLink = async (event, url) => {
+            event.preventDefault();
+            const { data: { session } } = await supabaseClient.auth.getSession();
+            if (!session) {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = url;
+            }
+        };
 
         const setupUI = async (user) => {
             if (user) {
@@ -149,7 +161,7 @@
                 mainContentContainer.innerHTML = `
                     <div class="main-actions">
                         <div class="action-card">
-                                <a href="all-stores.html">
+                                <a href="all-stores.html" onclick="handleProtectedLink(event, 'all-stores.html')">
                                     <img src="https://images.pexels.com/photos/1058959/pexels-photo-1058959.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Shopping" class="action-image">
                                     <div class="action-text">
                                         <h3>Shop Worldwide</h3>
@@ -158,7 +170,7 @@
                                 </a>
                             </div>
                         <div class="action-card">
-                            <a href="travel-details.html">
+                            <a href="travel-details.html" onclick="handleProtectedLink(event, 'travel-details.html')">
                                 <img src="assets/Voyage avec sourire dans l’aéroport.png" alt="Travel" class="action-image">
                                 <div class="action-text">
                                     <h3>Travel & Earn</h3>
@@ -196,7 +208,7 @@
                 <div class="data-section">
                     <div class="section-header">
                         <h2>Recent Order Requests</h2>
-                        <a href="all-stores.html" class="btn btn-primary">+ Create an Order</a>
+                        <a href="all-stores.html" class="btn btn-primary" onclick="handleProtectedLink(event, 'all-stores.html')">+ Create an Order</a>
                     </div>
                     <div class="scroll-wrapper">
                         <button class="scroll-arrow prev-arrow" data-target="orders-container">&lt;</button>
@@ -207,7 +219,7 @@
                 <div class="data-section">
                     <div class="section-header">
                         <h2>Upcoming Travelers</h2>
-                        <a href="travel-details.html" class="btn">+ Add Trip</a>
+                        <a href="travel-details.html" class="btn" onclick="handleProtectedLink(event, 'travel-details.html')">+ Add Trip</a>
                     </div>
                     <p class="section-description">See who's heading your way. Request a delivery directly from our community of verified travelers.</p>
                     <div class="scroll-wrapper">
